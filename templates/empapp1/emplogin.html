@@ -1,0 +1,57 @@
+{% extends "empapp1/base.html" %}
+{% load static %}
+
+{% block containt %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-danger text-capitalize">Employee Login</h3>
+            <hr class="">
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <form action="" method="POST">
+            {% csrf_token %}
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="">Email ID</label>
+                        <input type="email" name="email_id" class="form-control" placeholder="Enter Email ID" required>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                    </div>
+                </div>
+                <input type="submit" value="Login" class="btn btn-success">
+                <a href="{% url 'registration' %}" class="btn btn-warning">Signup</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% if error == "no" %}
+    <script>
+        alert("Login Successful")
+        window.location="{% url 'emp_home' %}";
+    </script>
+{% endif %}
+
+{% if erroe == "yes" %}
+    <script>
+        alert('Invalid Login , Try Again...');
+    </script> 
+{% endif %}
+
+{% if erroe == "not" %}
+    <script>
+        alert('Please Sign-Up');
+        window.location="{% url 'registration' %}"
+    </script> 
+{% endif %}
+  
+{% endblock containt %}
+

@@ -1,0 +1,39 @@
+{% extends "empapp2/adminbase.html" %}
+{% load static %}
+
+{% block main %}
+<div class="container">
+    <div class="row p-0">
+        <div class="col-10 p-0">
+            <h4 class="text-danger text-capitalize" style="border-bottom:2px solid orange">Edit Employee Education</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <form method="POST" class="" action="">
+            {% csrf_token %}
+            <table class="table table-bordered">
+              {{form.as_table}}
+            </table>
+            <input type="submit" value="Submit" class="btn btn-primary d-flex align-content-center">
+        </form>
+    </div>
+</div>
+
+{% if error == "no" %}
+  <script>
+    alert("Employee Education Detail Has Been Updated!")
+    window.location=("{% url 'admin_home' %}")
+  </script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something Went Wrong, Try Again....')
+</script>
+{% endif %}
+{% endblock main %}
+
+{% block containt %}
+{{block.super}}
+{% endblock containt %}

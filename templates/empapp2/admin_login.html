@@ -1,0 +1,44 @@
+{% extends "empapp2/adminbase.html" %}
+{% load static %}
+{% load static %}
+
+
+{% block containt %}
+<div class="container mt-2 p-2" id="adminbg">
+    
+    <div class="col-sm-12 card-body bg-warning p-2">
+        <h4 style="border-bottom: 2px solid green;">Admin Login:-</h4>
+        <div class="text-center">
+            <img src="{% static 'empapp1/images/icon.png' %}" alt="" width="150" height="150">
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="username"  class="form-control" value="" placeholder="User Name">
+                </div>
+                <hr>
+                <div class="input-group">
+                    <input type="password" name="password"  class="form-control" value="" placeholder="password">
+                </div>
+                <hr>
+                <input type="submit" value="Login" class="btn btn-success">
+                <a href="{% url 'index' %}" class="float-right btn btn-primary m-2">Back To Home</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% if error == "no" %}
+    <script>
+        alert("Admin Login Successfull")
+        window.location = "{% url 'admin_home' %}"
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something Wrong User Is Not admin Staff!!!")
+</script>
+{% endif %}
+{% endblock containt %}

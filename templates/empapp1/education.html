@@ -1,0 +1,102 @@
+{% extends "empapp1/base.html" %}
+{% load static %}
+
+{% block main %}
+<div class="container">
+
+    <div class="row p-0">
+        <div class="col-10 p-0"> <h4 class="text-success text-capitalize" style="border-bottom:2px solid orange">Education Detail</h4></div>
+        <div class="col-2 p-0"><a href="{% url 'edit_education' %}" class="btn btn-danger btn-sm float-right">Edit </a></div>
+    </div>
+
+    <div class="container">
+            <table class="table table-bordered">
+              <tr>
+                <th class="bg-info text-white">Post Graducation Course Name</th>
+                <td class="bg-info text-white">{{education.course_pg}}</td>
+              </tr>
+
+              <tr>
+                <th>College Name</th>
+                <td>{{education.clg_name_pg}}</td>
+              </tr>
+
+              <tr>
+                <th>Year Of Passing</th>
+                <td>{{education.year_of_passing_pg}}</td>
+              </tr>
+
+              <tr>
+                <th>Persentage</th>
+                <td>{{education.persentage_pg}}</td>
+              </tr>
+
+              <hr>
+              <tr>
+                <th class="bg-info text-white">Graducation Course Name </th>
+                <td class="bg-info text-white">{{education.course_g}}</td>
+              </tr>
+
+              <tr>
+                <th>Collage Name</th>
+                <td>{{education.clg_name_g}}</td>
+              </tr>
+
+              <tr>
+                <th>Year Of Passing</th>
+                <td>{{education.year_of_passing_g}}</td>
+              </tr>
+
+              <tr>
+                <th>Persentage</th>
+                <td>{{education.persentage_g}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info text-white">SSC Course Name</th>
+                <td class="bg-info text-white">{{education.course_ssc}}</td>
+              </tr>
+
+              <tr>
+                <th>School Name</th>
+                <td>{{education.school_name_ssc}}</td>
+              </tr>
+
+              <tr>
+                <th>Year Of Passing</th>
+                <td>{{education.year_of_passing_ssc}}</td>
+              </tr>
+
+              <tr>
+                <th>Persentage</th>
+                <td>{{education.persentage_ssc}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info text-white">HSC Course Name</th>
+                <td class="bg-info text-white">{{education.course_hsc}}</td>
+              </tr>
+
+              <tr>
+                <th>School Name</th>
+                <td>{{education.school_name_hsc}}</td>
+              </tr>
+
+              <tr>
+                <th>Year Of Passing</th>
+                <td>{{education.year_of_passing_hsc}}</td>
+              </tr>
+
+              <tr>
+                <th>Persentage</th>
+                <td>{{education.persentage_hsc}}</td>
+              </tr>
+
+            </table>
+    </div>
+</div>
+{% endblock main %}
+
+{% block containt %}
+  {{block.super}}
+{% endblock containt %}

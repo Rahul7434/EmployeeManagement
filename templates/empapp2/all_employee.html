@@ -1,0 +1,57 @@
+{% extends "empapp2/adminbase.html" %}
+{% load static %}
+
+{% block main %}
+    <div class="container">
+        <div class="card-body">
+            <h4 class="text-danger" style="border-bottom:2px solid orange">All Employee Details</h4>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table table-bordered" id="example" style="width: 100%;">
+                    <thead class="">
+                        <tr>
+                            <th class="">S No.</th>
+                            <th>Emp Code</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Contact No.</th>
+                            <th>Joining Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in employee %}
+                        <tr>
+                            
+                            <td class=""> {{forloop.counter}}</td>
+                            <td>{{i.empcode}}</td>
+                            <td>{{i.user.first_name}}</td>
+                            <td>{{i.user.last_name}}</td>
+                            <td>{{i.user.username}}</td>
+                            <td>{{i.contact}}</td>
+                            <td>{{i.joiningdate}}</td>
+                            <td>
+                                <a href="{% url 'edit_admin_profile' i.user.id %}" class=" btn btn-primary btn-sm">Edit</a>
+                                <br><a href="{% url 'delete_employee' i.user.id %}" class=" btn btn-danger btn-sm mt-1" onclick="return confirm('Are You Sure?')">Delete</a>
+                                <br><a href="{% url 'edit_admin_education' i.user.id %}" class=" btn btn-warning btn-sm mt-1">Edit Education</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                    
+                </table>
+            </div>
+        </form>
+    </div>
+{% endblock main %}
+
+{% block containt %}
+  {{block.super}}
+{% endblock containt %}

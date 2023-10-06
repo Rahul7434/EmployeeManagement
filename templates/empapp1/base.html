@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'empapp1/css/emp_home.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container-fluid">
+      <a class="navbar-brand text-danger" href="#">Employee Management System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active {% if request.path == '/index/' %} active {% endif %}" aria-current="page" href="{% url 'index' %}"><span class="	glyphicon glyphicon-home"></span>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active {% if request.path == '/emp_home/' %} active {% endif %}" aria-current="page" href="{% url 'emp_home' %}"><span class="	glyphicon glyphicon-home"></span>Employee Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active {% if request.path == '/admin_login/' %} active {% endif %}" href="{% url 'admin_login' %}"><span class="glyphicon glyphicon-log-in"></span>Admin Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active {% if request.path == '/registration/' %} active {% endif %}" href="{% url 'registration' %}"><span class="glyphicon glyphicon-user "></span>Employee Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active {% if request.path == '/emplogin/' %} active {% endif %}" href="{% url 'emplogin' %}"><span class="glyphicon glyphicon-log-in "></span>Employee Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% block containt %}
+<div class="container row">
+  <div class="col-sm-4">
+     <img src="{% static 'empapp1/images/icon.png' %}" alt="" width="100" height="100" class="img-thumbnail rounded-circle mt-2">
+
+     <div class="list-group"> 
+         <a href="{% url 'emp_home' %}" class="list-group-item list-group-item-warning {% if request.path == '/emp_home/' %} active {% endif %}">Dashboard</a>
+         <a href="{% url 'profile' %}" class="list-group-item list-group-item-warning {% if request.path == '/profile/' %} active {% endif %}">Profile Detail & Update</a>
+         <a href="{% url 'experience' %}" class="list-group-item list-group-item-warning {% if request.path == '/experience/' %} active {% endif %}">Experience</a>
+         <a href="{% url 'edit_experience' %}" class="list-group-item list-group-item-warning {% if request.path == '/edit_experience/' %} active {% endif %}">Edit Experience</a>
+         <a href="{% url 'education' %}" class="list-group-item list-group-item-warning {% if request.path == '/education/' %} active {% endif %}">Education</a>
+         <a href="{% url 'edit_education' %}" class="list-group-item list-group-item-warning {% if request.path == '/edit_education/' %} active {% endif %}">Edit Education</a>
+         <a href="{% url 'change_password' %}" class="list-group-item list-group-item-warning {% if request.path == '/change_password/' %} active {% endif %}">Change Password</a>
+         <a href="{% url 'logout' %}" class="list-group-item list-group-item-warning {% if request.path == '/logout/' %} active {% endif %}">Logout</a> 
+     </div>
+  </div>
+
+   <div class="col-sm-8">
+         <div class="container p-2">
+             <h3 class="text-center alert" style="border-bottom:2px solid green; border-top:2px solid green">Employee Record Management System</h3>
+
+             <div class="card bg-light p-2">
+                 <div class="card-body">
+                  {% block main %} 
+                  {% endblock main %}
+                 </div>
+             </div>
+         </div>
+   </div>
+</div>
+{% endblock containt %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+{% extends "empapp1/base.html" %}
+{% load static %}
+
+{% block containt %}
+
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-danger text-capitalize" style="border-bottom:2px solid orange">Profile Details And Edit</h3>
+        </div>
+    </div>
+
+    <div class="card p-2 bg-light">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">First Name:-</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="Enter First Name" value="{{employee.user.first_name}}">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Last Name:-</label>
+                        <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name" value="{{employee.user.last_name}}">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Employee Code:-</label>
+                        <input type="text" name="empcode" class="form-control" placeholder="Enter Code" pattern="[0-9]+" value="{{employee.empcode}}">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Email:-</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter Email" value="{{employee.user.username}}">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Employee Designation:-</label>
+                        <input type="text" name="designation" class="form-control" placeholder="Designation" value="{{employee.designation}}">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Employee Department:-</label>
+                        <input type="text" name="department" class="form-control" placeholder="Department" value="{{employee.empdept}}">
+                    </div>
+                </div>
+ 
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Contact:-</label>
+                        <input type="text" name="contact" class="form-control" placeholder="Contact" value="{{employee.contact}}">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Joining Date:- [{{employee.joiningdate}}]</label>
+                        <input type="Date" name="joiningdate" class="form-control" placeholder="Joining Date">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold h5">Gender:- [{{employee.gender}}]</label>
+                        <select name="gender" id="" class="form-control">
+                            <option value="None">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="submit" value="submit" class="btn btn-success mt-2">
+                <a href="{% url 'emp_home' %}" class="btn btn-danger mt-2">Back</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+ 
+{% if error == "no" %}
+    <script>
+      alert("Profile Updated Successfully..");
+      window.location = "{% url 'profile' %}";
+     
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+    <script>
+        alert("Something went wrong , try Again...");
+    </script>
+{% endif %}
+
+{% endblock containt %}

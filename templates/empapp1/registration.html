@@ -1,0 +1,93 @@
+{% extends "empapp1/base.html" %}
+{% load static %}
+
+{% block containt %}
+<script>
+  function checkpassword()
+  {
+    if(document.signup.password.value!=document.signup.cpassword.value)
+    {
+        alert('Password and Repeat Password field does not match');
+        document.signup.cpassword.focus();
+        return false;
+    }
+    return true;
+  }
+</script>
+
+
+<div class="container m-5 bg-info">
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-danger text-capitalize">Create An Account</h3>
+            <hr class="">
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <form action="" method="POST" name="signup" onsubmit="return checkpassword()">
+            {% csrf_token %}
+            <div class="form-row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">First Name</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="Enter First Name">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="">Employee Code</label>
+                        <input type="text" name="empcode" class="form-control" placeholder="Enter Code" pattern="[0-9]+">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Confirm Password</label>
+                        <input type="password" name="cpassword" class="form-control" placeholder="Enter  password Again">
+                    </div>
+                </div>
+                <input type="submit" value="submit" class="btn btn-success">
+            </div>
+
+        </form>
+    </div>
+</div>
+ 
+{% if error == "no" %}
+    <script>
+      alert("Signup Successful");
+      window.location = "{% url 'emplogin' %}";
+     
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+    <script>
+        alert("Something went wrong , try Again...");
+    </script>
+{% endif %}
+
+{% endblock containt %}
