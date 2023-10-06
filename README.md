@@ -94,3 +94,12 @@ Access the web application in your browser at http://localhost:8000.
   - Users can manage their employee profiles, education, and experience details.
   - Admins can log in to access administrative functions such as viewing, editing, and deleting employee data.
   - Admins can also change their password.
+
+
+### Access the web application in your browser at http://localhost:8000. it will gives this interface. 
+
+![Screenshot 2023-10-06 181055](https://github.com/Rahul7434/EmployeeManagement/assets/138716867/28fda4c3-ecf6-4b23-91da-649966323abe)
+
+### Note:- You have to log in to access all programs If you are not logged in then sign up, After logging in you will go to the profile page.
+
+![Screenshot 2023-10-06 182127](https://github.com/Rahul7434/EmployeeManagement/assets/138716867/96a535ea-00dc-49bd-ba58-0f9babe0d3f5)
