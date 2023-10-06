@@ -1,6 +1,50 @@
 # EmployeeManagement
 The Employee Management System is a web-based application built using Django, JavaScript, HTML, CSS, and MySQL. This project manages their employee data efficiently. It consists of two main applications: empapp1 for employee-related operations and empapp2 for administrative functions.
 
+
+## Project Structure
+
+- Employee_Management_System
+     - Employee_Management_System
+          - __init__.py
+          - asgi.py
+          - settings.py
+          - urls.py
+          - wsgi.py
+     - empapp1
+          - __init__.py
+          - admin.py
+          - apps.py
+          - forms.py
+          - models.py
+          - tests.py
+          - urls.py 
+          - views.py
+     - empapp2
+          - __init__.py
+          - admin.py
+          - apps.py
+          - forms.py
+          - models.py
+          - tests.py
+          - urls.py 
+          - views.py
+     - static
+          - empapp1
+               - css
+               - images
+               - js
+          - empapp1
+               - css
+               - images
+               - js
+     - templates
+          - empapp1
+               - all templates files
+          - empapp2
+               - all twmplates files
+     - manage.py
+
 ## Features
 1. User registration and login system
 2. Employee profile management
